@@ -15,7 +15,7 @@ jobs:
           node-version: '20'
 
       - run: npm ci
-      - run: npm run build -- --configuration production --base-href "/<repo>/" --deploy-url "/<repo>/"
+      - run: npm run build -- --configuration production --base-href "/soleil-brille-hub/" --deploy-url "/soleil-brille-hub/"
       - run: cp dist/<APP_NAME>/browser/index.html dist/<APP_NAME>/browser/404.html
 
       - name: Deploy to GitHub Pages
