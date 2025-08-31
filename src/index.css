@@ -2,41 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Soleil qui brille Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
+    /* Brand Colors - Soleil qui brille palette */
+    --brand-orange: 22 89% 49%; /* #E85C0D */
+    --brand-peach: 24 84% 88%; /* #FAD9C5 */
+    --brand-gray-light: 0 0% 96.5%; /* #F6F6F6 */
+    --brand-text: 0 0% 12.2%; /* #1F1F1F */
+    --brand-dark: 0 0% 6.7%; /* #111111 */
+    
+    /* Semantic Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 12.2%; /* brand-text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 12.2%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 12.2%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 22 89% 49%; /* brand-orange */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 24 84% 88%; /* brand-peach */
+    --secondary-foreground: 0 0% 12.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 96.5%; /* brand-gray-light */
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 22 89% 49%; /* brand-orange */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 22 89% 49%; /* brand-orange */
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(22 89% 49% / 0.9), hsl(24 84% 88% / 0.7));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(24 84% 98%));
+    --gradient-button: linear-gradient(135deg, hsl(22 89% 49%), hsl(22 89% 55%));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(22 89% 49% / 0.1), 0 2px 4px -1px hsl(22 89% 49% / 0.06);
+    --shadow-hero: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+    --shadow-button: 0 4px 14px 0 hsl(22 89% 49% / 0.39);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +117,35 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+  
+  /* Custom animations */
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
   }
 }
